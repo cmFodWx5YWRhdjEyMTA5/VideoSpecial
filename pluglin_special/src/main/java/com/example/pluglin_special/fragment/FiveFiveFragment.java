@@ -96,11 +96,13 @@ public class FiveFiveFragment extends BaseFragment implements View.OnClickListen
     WebViewClient webViewClient=new WebViewClient(){
         @Override
         public void onPageFinished(WebView view, String url) {//页面加载完成
+            super.onPageFinished(view, url);
             progressBar.dismiss();
         }
 
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon) {//页面开始加载
+            super.onPageStarted(view, url, favicon);
             progressBar.show();
         }
 

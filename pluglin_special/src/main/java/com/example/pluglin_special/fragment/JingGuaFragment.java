@@ -49,7 +49,6 @@ public class JingGuaFragment extends BaseFragment implements View.OnClickListene
         mWebView = (WebView) inflate.findViewById(R.id.webview);
         progressBar= new ProgressDialog(getContext());
         progressBar.setMessage("加载中");
-        progressBar.show();
         getBanner();
 
         mWebView.getSettings().setJavaScriptEnabled(true);//启用js
@@ -79,8 +78,8 @@ public class JingGuaFragment extends BaseFragment implements View.OnClickListene
     View.OnKeyListener mOnKeyListener=new View.OnKeyListener() {
         @Override
         public boolean onKey(View v, int keyCode, KeyEvent event) {
-            if (event.getAction() == KeyEvent.ACTION_DOWN) {
 
+            if (event.getAction() == KeyEvent.ACTION_DOWN) {
                 if (keyCode == KeyEvent.KEYCODE_BACK && mWebView.canGoBack()) {  //表示按返回键
                     mWebView.goBack();   //后退
                     //webview.goForward();//前进
@@ -94,17 +93,14 @@ public class JingGuaFragment extends BaseFragment implements View.OnClickListene
     WebViewClient webViewClient=new WebViewClient(){
         @Override
         public void onPageFinished(WebView view, String url) {//页面加载完成
+            super.onPageFinished(view, url);
             progressBar.dismiss();
         }
 
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon) {//页面开始加载
+            super.onPageStarted(view, url,favicon);
             progressBar.show();
-        }
-
-        @Override
-        public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            return super.shouldOverrideUrlLoading(view, url);
         }
     };
 

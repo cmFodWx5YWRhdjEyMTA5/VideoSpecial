@@ -3,9 +3,8 @@
     package="com.example.pluglin_special">
 
     <application>
-
-        <activity android:name=".SpecialActivity"></activity>
-
+        <activity android:name=".SpecialActivity" />
+        <activity android:name=".activity.DownLoadActivity"></activity>
     </application>
 
 </manifest>

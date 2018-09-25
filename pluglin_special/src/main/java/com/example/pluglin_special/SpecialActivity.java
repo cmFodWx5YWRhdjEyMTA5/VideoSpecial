@@ -1,5 +1,6 @@
 package com.example.pluglin_special;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.example.pluglin_special.activity.DownLoadActivity;
 import com.example.pluglin_special.fragment.FiveFiveFragment;
 import com.example.pluglin_special.fragment.JingGuaFragment;
 import com.example.pluglin_special.fragment.QuickFragment;
@@ -22,6 +24,7 @@ public class SpecialActivity extends BaseActivity {
     List<Fragment> mFragments = new ArrayList<>();
     private RadioGroup mRadioGroup;
     private int lastPos=0;
+    private ImageView mIvMain;
 
     @Override
     public int getLayout() {
@@ -31,6 +34,7 @@ public class SpecialActivity extends BaseActivity {
     @Override
     public void initView() {
         mIvBack = (ImageView) findViewById(R.id.iv_back);
+        mIvMain = (ImageView) findViewById(R.id.iv_main);
         mRadioGroup = (RadioGroup)findViewById(R.id.rg_layout);
     }
 
@@ -56,6 +60,14 @@ public class SpecialActivity extends BaseActivity {
                 finish();
             }
         });
+        mIvMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(SpecialActivity.this, DownLoadActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override
