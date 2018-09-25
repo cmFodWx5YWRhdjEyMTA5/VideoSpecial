@@ -10,14 +10,11 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatDelegate;
 import android.view.Gravity;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.ykk.pluglin_video.BaseActivity;
 import com.ykk.pluglin_video.R;
 import com.ykk.pluglin_video.R2;
@@ -25,7 +22,6 @@ import com.ykk.pluglin_video.entity.EventCategrayPos;
 import com.ykk.pluglin_video.fragment.ImageFragment;
 import com.ykk.pluglin_video.fragment.JokeFragment;
 import com.ykk.pluglin_video.fragment.RecFragment;
-import com.ykk.pluglin_video.fragment.SettingFragment;
 import com.ykk.pluglin_video.fragment.SpecialTxtFragment;
 import com.ykk.pluglin_video.fragment.TextFragment;
 import com.ykk.pluglin_video.fragment.VideoFragment;
@@ -82,6 +78,7 @@ public class PlayActivity extends BaseActivity {
     ScrollView mScrollview;
     private MViewPagerAdapter mMViewPagerAdapter;
     private String[] mStringArray;
+    int count=0;
     List<Fragment> mFragments = new ArrayList<>();
     private boolean isNight;
     private VideoFragment mInstance1;
@@ -126,6 +123,7 @@ public class PlayActivity extends BaseActivity {
     }
 
     private void setListener() {
+
         mTablayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -209,64 +207,71 @@ public class PlayActivity extends BaseActivity {
     }
 
     @OnClick({R2.id.iv_chat, R2.id.iv_setting,R2.id.iv_main,R2.id.head, R2.id.iv_close,R2.id.rl_collect,R2.id.rl_main, R2.id.rl_movie,
-            R2.id.rl_change_modul, R2.id.rl_me, R2.id.tv_close})
+            R2.id.rl_change_modul, R2.id.rl_me, R2.id.tv_close,R2.id.rl_bg_special})
     public void onClick(View view) {
-        int i = view.getId();
-        if (i == R.id.iv_main) {
-            if (!mDrawlayout.isDrawerOpen(Gravity.LEFT)) {
-                mDrawlayout.openDrawer(Gravity.LEFT);
-            }
-
-        } else if (i == R.id.iv_close) {
-            closeDrawLayout();
-
-        } else if (i == R.id.rl_main) {
-            closeDrawLayout();
-            mViewpager.setCurrentItem(0);
-
-        } else if (i == R.id.rl_movie) {//推荐
-            closeDrawLayout();
-            Intent intentHis = new Intent(this, HistoryTodayActivity.class);
-            startActivity(intentHis);
-            overridePendingTransition(R.anim.rotate, 0);
-
-        } else if (i == R.id.rl_change_modul) {
-            closeDrawLayout();
-            setNightMode();
-
-        } else if (i == R.id.rl_collect) {
-            closeDrawLayout();
-            Intent intentCol = new Intent(this, MyCollectActivity.class);
-            startActivity(intentCol);
-            overridePendingTransition(R.anim.rotate, R.anim.rotate_out);
-
-        } else if (i == R.id.rl_me) {
-            closeDrawLayout();
-            Intent intentAbu = new Intent(this, AboutUsActivity.class);
-            startActivity(intentAbu);
-            overridePendingTransition(R.anim.rotate, R.anim.rotate_out);
-
-        } else if (i == R.id.tv_close) {
-            closeDrawLayout();
-            finish();
-
-        } else if (i == R.id.head) {
-            closeDrawLayout();
-            Intent intentAbus = new Intent(this, AboutUsActivity.class);
-            startActivity(intentAbus);
-            overridePendingTransition(R.anim.rotate, R.anim.rotate_out);
-
-        } else if (i == R.id.iv_chat) {
-            closeDrawLayout();
-            Intent intentChat = new Intent(this, ChatActivity.class);
-            startActivity(intentChat);
-            overridePendingTransition(R.anim.rotate, R.anim.rotate_out);
-
-        } else if (i == R.id.iv_setting) {
-            SettingFragment settingFragment = SettingFragment.getInstance();
-            settingFragment.show(getSupportFragmentManager(), "");
-
-        }
+//        int i = view.getId();
+//        if (i == R.id.iv_main) {
+//            if (!mDrawlayout.isDrawerOpen(Gravity.LEFT)) {
+//                mDrawlayout.openDrawer(Gravity.LEFT);
+//            }
+//
+//        } else if (i == R.id.iv_close) {
+//            closeDrawLayout();
+//
+//        } else if (i == R.id.rl_main) {
+//            closeDrawLayout();
+//            mViewpager.setCurrentItem(0);
+//
+//        } else if (i == R.id.rl_movie) {//推荐
+//            closeDrawLayout();
+//            Intent intentHis = new Intent(this, HistoryTodayActivity.class);
+//            startActivity(intentHis);
+//            overridePendingTransition(R.anim.rotate, 0);
+//
+//        } else if (i == R.id.rl_change_modul) {
+//            closeDrawLayout();
+//            setNightMode();
+//
+//        } else if (i == R.id.rl_collect) {
+//            closeDrawLayout();
+//            Intent intentCol = new Intent(this, MyCollectActivity.class);
+//            startActivity(intentCol);
+//            overridePendingTransition(R.anim.rotate, R.anim.rotate_out);
+//
+//        } else if (i == R.id.rl_me) {
+//            closeDrawLayout();
+//            Intent intentAbu = new Intent(this, AboutUsActivity.class);
+//            startActivity(intentAbu);
+//            overridePendingTransition(R.anim.rotate, R.anim.rotate_out);
+//
+//        } else if (i == R.id.tv_close) {
+//            closeDrawLayout();
+//            finish();
+//
+//        } else if (i == R.id.head) {
+////            Intent intentAbus = new Intent(this, AboutUsActivity.class);
+//            count++;
+//            if(count==1){
+//                closeDrawLayout();
+//                count=0;
+//                Intent intentAbus = new Intent(this, MainActivity.class);
+//                startActivity(intentAbus);
+//                overridePendingTransition(R.anim.rotate, R.anim.rotate_out);
+//            }
+//
+//        } else if (i == R.id.iv_chat) {
+//            closeDrawLayout();
+//            Intent intentChat = new Intent(this, ChatActivity.class);
+//            startActivity(intentChat);
+//            overridePendingTransition(R.anim.rotate, R.anim.rotate_out);
+//
+//        } else if (i == R.id.iv_setting) {
+//            SettingFragment settingFragment = SettingFragment.getInstance();
+//            settingFragment.show(getSupportFragmentManager(), "");
+//
+//        }else if(i == R.id.rl_bg_special){
+//            Toast.makeText(PlayActivity.this, count+"", Toast.LENGTH_SHORT).show();
+//        }
     }
 
     private void setNightMode() {

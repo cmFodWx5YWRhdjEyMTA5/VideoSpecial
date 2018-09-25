@@ -32,12 +32,12 @@
                          android:button="@null"
                          android:gravity="center"
                          android:drawableTop="@drawable/live_section_index"/>
-            <RadioButton android:layout_width="0dp"
+            <Button      android:layout_width="0dp"
                          android:layout_weight="1"
                          android:id="@+id/collect"
                          android:button="@null"
-                         android:text="收藏"
-                         android:textColor="@drawable/selector_main_text"
+                         android:text="聊天"
+                         android:background="@color/white"
                          android:gravity="center"
                          android:drawableTop="@drawable/live_section_circle"
                          android:layout_height="wrap_content"/>

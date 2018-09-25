@@ -19,6 +19,7 @@ import com.matrix.yukun.matrix.BaseActivity;
 import com.matrix.yukun.matrix.R;
 import com.qq.e.ads.splash.SplashAD;
 import com.qq.e.ads.splash.SplashADListener;
+import com.ykk.pluglin_video.play.PlayMainActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -159,7 +160,6 @@ public class SplashActivity extends BaseActivity/* implements SplashADListener *
     }
 
     private void forward() {
-        Log.i("---conJump",conJump+"");
         if(conJump){
             Intent intent;
             if(!isFace().equals("a")){
@@ -167,7 +167,8 @@ public class SplashActivity extends BaseActivity/* implements SplashADListener *
             }else if(istrue()){
                 intent=new Intent(this,LockActivity.class);
             }else {
-                intent=new Intent(this,MainActivity.class);
+                intent=new Intent(this, PlayMainActivity.class);
+//                intent=new Intent(this,MainActivity.class);
             }
             startActivity(intent);
             finish();

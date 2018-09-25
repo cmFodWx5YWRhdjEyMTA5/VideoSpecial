@@ -2,6 +2,7 @@ package com.ykk.pluglin_video.play;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Color;
@@ -12,6 +13,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatDelegate;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -21,6 +23,7 @@ import com.ykk.pluglin_video.fragment.AboutUsFragment;
 import com.ykk.pluglin_video.fragment.MyCollectFragment;
 import com.ykk.pluglin_video.fragment.PlayFragment;
 import com.ykk.pluglin_video.BaseActivity;
+import com.ykk.pluglin_video.utils.ActivityUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +37,7 @@ public class PlayMainActivity extends BaseActivity {
     private List<Fragment> mFragments=new ArrayList<>();
     private int lastPos=0;
     private boolean isNight;
+    private Button mBtColloct;
 
     @Override
     public int getLayout() {
@@ -59,6 +63,7 @@ public class PlayMainActivity extends BaseActivity {
         fragmentTransaction.add(R.id.fl_layout, playFragment);
         fragmentTransaction.commit();
 
+        mBtColloct = (Button) findViewById(R.id.collect);
         ((RadioButton) (mRg.getChildAt(0))).setChecked(true);
         setListener();
     }
@@ -72,14 +77,20 @@ public class PlayMainActivity extends BaseActivity {
                     show(0);
 
                 } else if (checkedId == R.id.collect) {
-                    ((RadioButton) (mRg.getChildAt(1))).setChecked(true);
-                    show(1);
+//                    ((RadioButton) (mRg.getChildAt(1))).setChecked(true);
+//                    show(1);
 
                 } else if (checkedId == R.id.me) {
                     ((RadioButton) (mRg.getChildAt(2))).setChecked(true);
                     show(2);
-
                 }
+            }
+        });
+        mBtColloct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(PlayMainActivity.this,ChatActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -125,5 +136,4 @@ public class PlayMainActivity extends BaseActivity {
         fragmentTransaction.commit();
         lastPos = pos;
     }
-
 }

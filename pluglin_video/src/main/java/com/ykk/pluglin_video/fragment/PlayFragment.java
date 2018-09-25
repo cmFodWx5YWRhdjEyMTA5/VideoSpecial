@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.example.pluglin_special.SpecialActivity;
 import com.ykk.pluglin_video.BaseFragment;
 import com.ykk.pluglin_video.R;
 import com.ykk.pluglin_video.R2;
@@ -96,6 +97,7 @@ public class PlayFragment extends BaseFragment {
     private TextFragment mInstance5;
     private SpecialTxtFragment mInstance2;
     private RecFragment mInstance;
+    int count=0;
 
     public static PlayFragment getInstance() {
         PlayFragment playFragment = new PlayFragment();
@@ -222,7 +224,7 @@ public class PlayFragment extends BaseFragment {
     }
 
     @OnClick({R2.id.iv_chat, R2.id.iv_setting, R2.id.iv_main, R2.id.head, R2.id.iv_close, R2.id.rl_collect, R2.id.rl_main,
-            R2.id.rl_movie, R2.id.rl_change_modul, R2.id.rl_me, R2.id.tv_close})
+            R2.id.rl_movie, R2.id.rl_change_modul, R2.id.rl_me, R2.id.tv_close,R2.id.rl_bg_special})
     public void onClick(View view) {
         int i = view.getId();
         if (i == R.id.iv_main) {
@@ -278,12 +280,15 @@ public class PlayFragment extends BaseFragment {
         } else if (i == R.id.iv_setting) {
             SettingFragment settingFragment = SettingFragment.getInstance();
             settingFragment.show(getChildFragmentManager(), "");
-
+        } else if(i==R.id.rl_bg_special){
+            count++;
+            if(count==3){
+                count=0;
+                Intent intent=new Intent(getContext(), SpecialActivity.class);
+                startActivity(intent);
+            }
         }
     }
-
-
-
 
     @Override
     public void onDestroyView() {

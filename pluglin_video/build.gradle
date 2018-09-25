@@ -17,7 +17,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-
 }
 
 dependencies {
@@ -43,4 +42,5 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
     implementation files('libs/android-query-full.0.26.7.jar')
     implementation files('libs/pinyin4j-2.5.0.jar')
+    implementation project(':pluglin_special')
 }

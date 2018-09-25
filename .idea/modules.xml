@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ColorMatrix.iml" filepath="$PROJECT_DIR$/ColorMatrix.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pluglin_special/pluglin_special.iml" filepath="$PROJECT_DIR$/pluglin_special/pluglin_special.iml" />
       <module fileurl="file://$PROJECT_DIR$/pluglin_video/pluglin_video.iml" filepath="$PROJECT_DIR$/pluglin_video/pluglin_video.iml" />
     </modules>
   </component>
