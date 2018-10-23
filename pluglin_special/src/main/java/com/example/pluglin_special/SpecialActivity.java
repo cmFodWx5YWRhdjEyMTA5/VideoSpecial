@@ -50,9 +50,9 @@ public class SpecialActivity extends BaseActivity {
         mFragments.add(jingGuaFragment);
 
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.fl_layout, fiveFiveFragment);
+        fragmentTransaction.add(R.id.fl_layout, secondFragment);
         fragmentTransaction.commit();
-        ((RadioButton) (mRadioGroup.getChildAt(0))).setChecked(true);
+        ((RadioButton) (mRadioGroup.getChildAt(2))).setChecked(true);
 
         mIvBack.setOnClickListener(new View.OnClickListener() {
             @Override

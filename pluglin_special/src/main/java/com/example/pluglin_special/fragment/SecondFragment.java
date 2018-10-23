@@ -1,9 +1,12 @@
 package com.example.pluglin_special.fragment;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -31,6 +34,7 @@ public class SecondFragment extends BaseFragment implements View.OnClickListener
     private BannerView mBannerView;
     private RelativeLayout mRlBannerLayout;
     private ProgressDialog progressBar;
+    private FloatingActionButton mFloatingActionButton;
 
     public static SecondFragment newInstance(){
         return new SecondFragment();
@@ -38,7 +42,7 @@ public class SecondFragment extends BaseFragment implements View.OnClickListener
 
     @Override
     public int getLayout() {
-        return R.layout.fragment_five_five_layout;
+        return R.layout.fragment_second_layout;
     }
 
     @Override
@@ -46,6 +50,7 @@ public class SecondFragment extends BaseFragment implements View.OnClickListener
         mRlBanner = (RelativeLayout) inflate.findViewById(R.id.rl_banner);
         mRlBannerLayout = (RelativeLayout) inflate.findViewById(R.id.rl_banner_layout);
         mIvClose = (ImageView) inflate.findViewById(R.id.iv_banner_close);
+        mFloatingActionButton = (FloatingActionButton) inflate.findViewById(R.id.bt_add_conference);
         mWebView = (WebView) inflate.findViewById(R.id.webview);
         progressBar= new ProgressDialog(getContext());
         progressBar.setMessage("加载中");
@@ -59,7 +64,7 @@ public class SecondFragment extends BaseFragment implements View.OnClickListener
             mWebView.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
         }
         mWebView.setWebViewClient(webViewClient);
-        mWebView.loadUrl(Constant.SECOND);
+        mWebView.loadUrl(Constant.BTBTDY);
     }
 
     @Override
@@ -76,6 +81,7 @@ public class SecondFragment extends BaseFragment implements View.OnClickListener
                 return true;
             }
         });
+        mFloatingActionButton.setOnClickListener(this);
     }
 
     @Override
@@ -83,6 +89,16 @@ public class SecondFragment extends BaseFragment implements View.OnClickListener
         int id = v.getId();
         if(id==R.id.iv_banner_close){
             mRlBannerLayout.setVisibility(View.GONE);
+        }
+
+        if(id==R.id.bt_add_conference){
+            String url = mWebView.getUrl();
+            //代码实现跳转
+            Intent intent = new Intent();
+            intent.setAction("android.intent.action.VIEW");
+            //此处填链接
+            intent.setData(Uri.parse(url));
+            startActivity(intent);
         }
     }
 

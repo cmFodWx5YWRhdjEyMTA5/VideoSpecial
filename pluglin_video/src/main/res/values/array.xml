@@ -28,4 +28,13 @@
         <item>我会发光~~</item>
         <item>向日葵里盛开的夏天</item>
     </string-array>
+    <string-array name="tools_name">
+        <item>图片处理</item>
+        <item>摄像</item>
+        <item>手机弹幕</item>
+        <item>二维码生成</item>
+        <item>BT电影</item>
+        <item>今日历史</item>
+        <item></item>
+    </string-array>
 </resources>

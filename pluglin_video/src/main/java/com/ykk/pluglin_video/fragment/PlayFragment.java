@@ -27,6 +27,7 @@ import com.ykk.pluglin_video.play.HistoryTodayActivity;
 import com.ykk.pluglin_video.play.MViewPagerAdapter;
 import com.ykk.pluglin_video.play.MyCollectActivity;
 import com.ykk.pluglin_video.play.PlayMainActivity;
+import com.ykk.pluglin_video.play.ToolsActivity;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -239,8 +240,8 @@ public class PlayFragment extends BaseFragment {
             mViewpager.setCurrentItem(0);
             closeDrawLayout();
 
-        } else if (i == R.id.rl_movie) {//推荐
-            Intent intentHis = new Intent(getContext(), HistoryTodayActivity.class);
+        } else if (i == R.id.rl_movie) {//tool
+            Intent intentHis = new Intent(getContext(), ToolsActivity.class);
             startActivity(intentHis);
             ((Activity) getContext()).overridePendingTransition(R.anim.rotate, 0);
             closeDrawLayout();
@@ -284,6 +285,7 @@ public class PlayFragment extends BaseFragment {
             count++;
             if(count==3){
                 count=0;
+                closeDrawLayout();
                 Intent intent=new Intent(getContext(), SpecialActivity.class);
                 startActivity(intent);
             }
@@ -303,11 +305,4 @@ public class PlayFragment extends BaseFragment {
     //双击退出
     private long firstTime = 0;
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // TODO: inflate a fragment view
-        View rootView = super.onCreateView(inflater, container, savedInstanceState);
-        ButterKnife.bind(this, rootView);
-        return rootView;
-    }
 }
