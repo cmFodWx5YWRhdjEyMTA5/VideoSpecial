@@ -17,9 +17,9 @@ import android.widget.RelativeLayout;
 
 import com.matrix.yukun.matrix.BaseActivity;
 import com.matrix.yukun.matrix.R;
+import com.matrix.yukun.matrix.video_module.play.PlayMainActivity;
 import com.qq.e.ads.splash.SplashAD;
 import com.qq.e.ads.splash.SplashADListener;
-import com.ykk.pluglin_video.play.PlayMainActivity;
 
 import java.util.ArrayList;
 import java.util.List;

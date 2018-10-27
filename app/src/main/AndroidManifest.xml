@@ -109,7 +109,6 @@
             android:launchMode="singleInstance">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -183,6 +182,29 @@
         <activity android:name=".chat_module.ChatPersonActivity"></activity>
         <activity android:name=".wallpaper_module.WallpaperActivity"></activity>
         <activity android:name=".main_module.CropActivity"></activity>
+        //play
+        <activity android:name=".video_module.video.VideoFileActivity"></activity>
+        <activity android:name=".video_module.video.PhotoViewActivity"></activity>
+        <activity
+            android:name=".video_module.video.VideoPlayActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:screenOrientation="portrait"> <!-- or android:screenOrientation="landscape" -->
+        </activity>
+        <activity
+            android:name=".video_module.video.ProductVideoActivity"
+            android:screenOrientation="landscape"></activity>
+        <activity
+            android:name=".video_module.play.PlayActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".video_module.play.JokeDetailActivity"></activity>
+        <activity android:name=".video_module.play.AboutUsActivity"></activity>
+        <activity android:name=".video_module.play.ImageDetailActivity"></activity>
+        <activity android:name=".video_module.play.MyCollectActivity"></activity>
+        <activity android:name=".video_module.play.TextDetailActivity"></activity>
+        <activity android:name=".video_module.play.HistoryTodayActivity"></activity>
+        <activity android:name=".video_module.play.ChatActivity"></activity>
+        <activity android:name=".video_module.play.PlayMainActivity"></activity>
+        <activity android:name=".video_module.play.ToolsActivity"></activity>
     </application>
 
 </manifest>

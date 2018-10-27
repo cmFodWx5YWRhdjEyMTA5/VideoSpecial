@@ -7,9 +7,9 @@ import android.widget.Toast;
 
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechUtility;
+import com.matrix.yukun.matrix.video_module.MyApplication;
 import com.tencent.bugly.Bugly;
 import com.tencent.bugly.beta.Beta;
-import com.ykk.pluglin_video.MyApplication;
 
 import org.litepal.LitePalApplication;
 
