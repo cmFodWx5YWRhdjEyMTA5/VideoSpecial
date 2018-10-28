@@ -1,4 +1,4 @@
-package com.matrix.yukun.matrix.chat_module;
+package com.matrix.yukun.matrix.image_module;
 
 /**
  * Created by yukun on 17-5-12.

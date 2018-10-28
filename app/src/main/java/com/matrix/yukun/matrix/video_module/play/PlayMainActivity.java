@@ -20,6 +20,7 @@ import com.matrix.yukun.matrix.video_module.fragment.PlayFragment;
 import com.matrix.yukun.matrix.video_module.BaseActivity;
 import com.matrix.yukun.matrix.R;
 import com.matrix.yukun.matrix.R2;
+import com.matrix.yukun.matrix.video_module.fragment.ToolFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +35,7 @@ public class PlayMainActivity extends BaseActivity {
     private int lastPos=0;
     private boolean isNight;
     private Button mBtColloct;
+    private ToolFragment mToolFragment;
 
     @Override
     public int getLayout() {
@@ -50,8 +52,9 @@ public class PlayMainActivity extends BaseActivity {
     public void initView() {
         PlayFragment playFragment= PlayFragment.getInstance();
         mFragments.add(playFragment);
-        MyCollectFragment myCollectFragment= MyCollectFragment.getInstance();
-        mFragments.add(myCollectFragment);
+//        MyCollectFragment myCollectFragment= MyCollectFragment.getInstance();
+        mToolFragment = ToolFragment.getInstance();
+        mFragments.add(mToolFragment);
         AboutUsFragment aboutUsFragment= AboutUsFragment.getInstance();
         mFragments.add(aboutUsFragment);
 
@@ -73,8 +76,8 @@ public class PlayMainActivity extends BaseActivity {
                     show(0);
 
                 } else if (checkedId == R.id.collect) {
-//                    ((RadioButton) (mRg.getChildAt(1))).setChecked(true);
-//                    show(1);
+                    ((RadioButton) (mRg.getChildAt(1))).setChecked(true);
+                    show(1);
 
                 } else if (checkedId == R.id.me) {
                     ((RadioButton) (mRg.getChildAt(2))).setChecked(true);
@@ -82,13 +85,13 @@ public class PlayMainActivity extends BaseActivity {
                 }
             }
         });
-        mBtColloct.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(PlayMainActivity.this,ChatActivity.class);
-                startActivity(intent);
-            }
-        });
+//        mBtColloct.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent=new Intent(PlayMainActivity.this,ChatActivity.class);
+//                startActivity(intent);
+//            }
+//        });
     }
 
         public void setNightMode() {

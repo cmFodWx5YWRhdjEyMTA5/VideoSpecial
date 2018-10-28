@@ -54,4 +54,5 @@
         <attr name="circleRadio" />
         <attr name="imageDevide"/>
     </declare-styleable>
+
 </resources>

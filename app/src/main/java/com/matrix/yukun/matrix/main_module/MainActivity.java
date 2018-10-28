@@ -874,27 +874,27 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     //两次退出
     private static Boolean isQuit = false;
     private Timer timer = new Timer();
-    @Override
-    public void onBackPressed() {
-        if(mIsMenuOpen){
-            mIsMenuOpen=false;
-            closeMenu();
-        }else {
-            if (isQuit == false) {
-                isQuit = true;
-                MyApp.showToast("再按一次退出*_*");
-                TimerTask task = new TimerTask() {
-                    @Override
-                    public void run() {
-                        isQuit = false;
-                    }
-                };
-                timer.schedule(task, 2000);
-            } else {
-                finish();
-//            System.exit(0);
-                android.os.Process.killProcess(android.os.Process.myPid());
-            }
-        }
-    }
+//    @Override
+//    public void onBackPressed() {
+//        if(mIsMenuOpen){
+//            mIsMenuOpen=false;
+//            closeMenu();
+//        }else {
+//            if (isQuit == false) {
+//                isQuit = true;
+//                MyApp.showToast("再按一次退出*_*");
+//                TimerTask task = new TimerTask() {
+//                    @Override
+//                    public void run() {
+//                        isQuit = false;
+//                    }
+//                };
+//                timer.schedule(task, 2000);
+//            } else {
+//                finish();
+////            System.exit(0);
+//                android.os.Process.killProcess(android.os.Process.myPid());
+//            }
+//        }
+//    }
 }

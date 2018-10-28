@@ -18,14 +18,11 @@ import android.widget.ListView;
 
 import com.matrix.yukun.matrix.R;
 import com.matrix.yukun.matrix.R2;
-import com.matrix.yukun.matrix.chat_module.ChatActivity;
 import com.matrix.yukun.matrix.gesture_module.GestureActivity;
 import com.matrix.yukun.matrix.image_module.activity.ListDetailActivity;
 import com.matrix.yukun.matrix.movie_module.MovieActivity;
 import com.matrix.yukun.matrix.util.FileUtil;
 import com.matrix.yukun.matrix.video_module.utils.ToastUtils;
-import com.matrix.yukun.matrix.wallpaper_module.WallpaperActivity;
-import com.matrix.yukun.matrix.weather_module.WeatherActivity;
 import com.mcxtzhang.pathanimlib.StoreHouseAnimView;
 import com.mcxtzhang.pathanimlib.res.StoreHousePath;
 import com.mcxtzhang.pathanimlib.utils.PathParserUtils;
@@ -110,7 +107,7 @@ public class SettingActivity extends AppCompatActivity {
                         Beta.checkUpgrade();
                         break;
                     case 8:
-                        ToastUtils.showToast(getVersion());
+                        ToastUtils.showToast("版本号：V"+getVersion());
                         break;
                 }
                 if(aClass!=null){

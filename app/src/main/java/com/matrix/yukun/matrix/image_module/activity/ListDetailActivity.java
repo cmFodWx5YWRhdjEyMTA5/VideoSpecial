@@ -1,6 +1,5 @@
 package com.matrix.yukun.matrix.image_module.activity;
 
-import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -8,7 +7,6 @@ import android.os.Build;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
@@ -16,21 +14,16 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.matrix.yukun.matrix.BaseActivity;
 import com.matrix.yukun.matrix.R;
-import com.matrix.yukun.matrix.chat_module.OnEventImage;
+import com.matrix.yukun.matrix.image_module.OnEventImage;
 import com.matrix.yukun.matrix.image_module.adapter.GlideViewAdapter;
 import com.matrix.yukun.matrix.image_module.bean.EventDetail;
-import com.matrix.yukun.matrix.image_module.bean.EventList;
 import com.matrix.yukun.matrix.setting_module.PhotoActivity;
 import com.matrix.yukun.matrix.util.FileUtil;
 
 import org.greenrobot.eventbus.EventBus;
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import me.everything.android.ui.overscroll.OverScrollDecoratorHelper;
 

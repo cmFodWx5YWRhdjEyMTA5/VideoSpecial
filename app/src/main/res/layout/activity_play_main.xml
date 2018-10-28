@@ -32,13 +32,14 @@
                          android:button="@null"
                          android:gravity="center"
                          android:drawableTop="@drawable/live_section_index"/>
-            <Button      android:layout_width="0dp"
+            <RadioButton android:layout_width="0dp"
                          android:layout_weight="1"
                          android:id="@+id/collect"
                          android:button="@null"
-                         android:text="聊天"
+                         android:text="工具"
                          android:background="@color/white"
                          android:gravity="center"
+                         android:textColor="@drawable/selector_main_text"
                          android:drawableTop="@drawable/live_section_circle"
                          android:layout_height="wrap_content"/>
             <RadioButton android:layout_width="0dp"
