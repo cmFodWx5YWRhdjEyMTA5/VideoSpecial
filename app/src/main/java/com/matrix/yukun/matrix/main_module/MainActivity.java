@@ -60,10 +60,10 @@ import com.matrix.yukun.matrix.util.FileUtil;
 import com.matrix.yukun.matrix.util.ImageUtils;
 import com.matrix.yukun.matrix.util.ScreenUtils;
 import com.matrix.yukun.matrix.util.SpacesItemDecoration;
+import com.matrix.yukun.matrix.video_module.play.PlayMainActivity;
 import com.matrix.yukun.matrix.weather_module.WeatherActivity;
 import com.tencent.bugly.beta.Beta;
-import com.ykk.pluglin_video.play.PlayActivity;
-import com.ykk.pluglin_video.play.PlayMainActivity;
+
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -336,7 +336,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 //        bitmapCopy.compress(Bitmap.CompressFormat.JPEG, 100, baos);// 质量压缩方法，这里100表示不压缩，把压缩后的数据存放到baos中
 ////        Log.i("-----M",baos.toByteArray().length / 1024/1024+"");
 //        if(baos.toByteArray().length / 1024/1024>15){
-//            Toast.makeText(MainActivity.this, "图片过大,请选择较小图片", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(ProductVideoActivity.this, "图片过大,请选择较小图片", Toast.LENGTH_SHORT).show();
 //            return;
 //        }
 //        if(bitmapCopy.getWidth()>2048){
@@ -564,9 +564,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 }).start();
                 break;
             case R.id.tv_video:
-                Intent iVideo=new Intent(this, PlayMainActivity.class);
-                startActivity(iVideo);
-                overridePendingTransition(R.anim.right_in,R.anim.left_out);
+//                Intent iVideo=new Intent(this, PlayMainActivity.class);
+//                startActivity(iVideo);
+//                overridePendingTransition(R.anim.right_in,R.anim.left_out);
                 break;
         }
         mVerticalSeekBar.setOnSlideChangeListener(new VerticalSeekBar.SlideChangeListener() {
@@ -874,27 +874,27 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     //两次退出
     private static Boolean isQuit = false;
     private Timer timer = new Timer();
-    @Override
-    public void onBackPressed() {
-        if(mIsMenuOpen){
-            mIsMenuOpen=false;
-            closeMenu();
-        }else {
-            if (isQuit == false) {
-                isQuit = true;
-                MyApp.showToast("再按一次退出*_*");
-                TimerTask task = new TimerTask() {
-                    @Override
-                    public void run() {
-                        isQuit = false;
-                    }
-                };
-                timer.schedule(task, 2000);
-            } else {
-                finish();
-//            System.exit(0);
-                android.os.Process.killProcess(android.os.Process.myPid());
-            }
-        }
-    }
+//    @Override
+//    public void onBackPressed() {
+//        if(mIsMenuOpen){
+//            mIsMenuOpen=false;
+//            closeMenu();
+//        }else {
+//            if (isQuit == false) {
+//                isQuit = true;
+//                MyApp.showToast("再按一次退出*_*");
+//                TimerTask task = new TimerTask() {
+//                    @Override
+//                    public void run() {
+//                        isQuit = false;
+//                    }
+//                };
+//                timer.schedule(task, 2000);
+//            } else {
+//                finish();
+////            System.exit(0);
+//                android.os.Process.killProcess(android.os.Process.myPid());
+//            }
+//        }
+//    }
 }

@@ -79,9 +79,24 @@ dependencies {
     compile 'com.haozhang.libary:android-slanted-textview:1.2'
     compile 'com.getbase:floatingactionbutton:1.10.1'
     compile 'com.github.chrisbanes.photoview:library:1.2.4'
+<<<<<<< HEAD
     compile 'com.isanwenyu.highlight:highlight:1.8.0'
+=======
+
+    compile 'org.litepal.android:core:1.6.0'
+    compile 'com.zhy:okhttputils:2.6.2'
+    compile 'com.google.code.gson:gson:2.8.2'
+    compile 'com.haozhang.libary:android-slanted-textview:1.2'
+    compile 'com.bigkoo:convenientbanner:2.0.5'
+    compile 'org.greenrobot:eventbus:3.1.1'
+    compile 'me.everything:overscroll-decor-android:1.0.4'
+    compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.4-5'
+    compile 'com.google.code.gson:gson:2.8.2'
+    compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.4-6'
+
+>>>>>>> 3fcd459983caed03fdba6118d19dd74cd4169cb1
     compile files('libs/Msc.jar')
     compile files('libs/Sunflower.jar')
-    compile project(':pluglin_video')
     implementation project(':pluglin_special')
+    implementation files('libs/android-query-full.0.26.7.jar')
 }

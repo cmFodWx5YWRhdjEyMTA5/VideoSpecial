@@ -18,6 +18,11 @@
         <attr name="circleDuration" />
     </declare-styleable>
 
+    <declare-styleable name="SideBar">
+        <attr name="scaleTime" format="integer"></attr>
+        <attr name="scaleItemCount" format="integer"></attr>
+
+    </declare-styleable>
     <!--WaterLoadView-->
     <attr name="circleSmallRadio" format="integer"/>
     <attr name="circleTop" format="integer"/>
@@ -49,4 +54,5 @@
         <attr name="circleRadio" />
         <attr name="imageDevide"/>
     </declare-styleable>
+
 </resources>

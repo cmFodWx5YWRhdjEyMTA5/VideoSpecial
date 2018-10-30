@@ -1,6 +1,8 @@
 package com.matrix.yukun.matrix.setting_module;
 
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -16,19 +18,19 @@ import android.widget.ListView;
 
 import com.matrix.yukun.matrix.R;
 import com.matrix.yukun.matrix.R2;
-import com.matrix.yukun.matrix.chat_module.ChatActivity;
 import com.matrix.yukun.matrix.gesture_module.GestureActivity;
 import com.matrix.yukun.matrix.image_module.activity.ListDetailActivity;
 import com.matrix.yukun.matrix.movie_module.MovieActivity;
 import com.matrix.yukun.matrix.util.FileUtil;
-import com.matrix.yukun.matrix.wallpaper_module.WallpaperActivity;
-import com.matrix.yukun.matrix.weather_module.WeatherActivity;
+import com.matrix.yukun.matrix.video_module.utils.ToastUtils;
 import com.mcxtzhang.pathanimlib.StoreHouseAnimView;
 import com.mcxtzhang.pathanimlib.res.StoreHousePath;
 import com.mcxtzhang.pathanimlib.utils.PathParserUtils;
+import com.tencent.bugly.beta.Beta;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -64,65 +66,74 @@ public class SettingActivity extends AppCompatActivity {
         mListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                switch (position){
+                List<Class> classes=new ArrayList<>();
+                Class aClass=null;
+                switch (position) {
                     case 0:
-                        Resources res=getResources();
-                        Bitmap bmp= BitmapFactory.decodeResource(res,R.mipmap.tool_icon);
+                        Resources res = getResources();
+                        Bitmap bmp = BitmapFactory.decodeResource(res, R.mipmap.tool_icon);
                         loadImage(bmp);
                         break;
                     case 1:
-                        Intent intent2=new Intent(SettingActivity.this,MovieActivity.class);
-                        startActivity(intent2);
-                        overridePendingTransition(R.anim.right_in,R.anim.left_out);
+                        aClass = MovieActivity.class;
                         break;
                     case 2:
-                        Intent intent3=new Intent(SettingActivity.this,WeatherActivity.class);
-                        startActivity(intent3);
-                        overridePendingTransition(R.anim.right_in,R.anim.left_out);
-                        break;
-                    case 3:
-                        File destDis = new File(Environment.getExternalStorageDirectory()+"/yukun");
+                        //打开Matria图库
+                        File destDis = new File(Environment.getExternalStorageDirectory() + "/yukun");
                         if (!destDis.exists()) {
                             destDis.mkdirs();
                         }
                         lists.clear();
-                        File[] filess=destDis.listFiles();
+                        File[] filess = destDis.listFiles();
                         for (int i = 0; i < filess.length; i++) {
-                            lists.add(filess[i]+"");
+                            lists.add(filess[i] + "");
                         }
-                        //打开Matria图库
-                        Intent intent_maps=new Intent(SettingActivity.this,ListDetailActivity.class);
-                        intent_maps.putStringArrayListExtra("photo",lists);
-                        intent_maps.putExtra("tag",1);
-                        startActivity(intent_maps);
-                        overridePendingTransition(R.anim.right_in, R.anim.left_out);
+                        aClass = ListDetailActivity.class;
+                        break;
+                    case 3:
+                        aClass = GestureActivity.class;
                         break;
                     case 4:
-                        Intent intent=new Intent(SettingActivity.this,ChatActivity.class);
-                        startActivity(intent);
-                        overridePendingTransition(R.anim.right_in,R.anim.left_out);
+                        aClass = AgreeActivity.class;
                         break;
-                    /*case 6:
-                        setNightMode();
-                        break;*/
                     case 5:
-                        Intent getsure=new Intent(SettingActivity.this,GestureActivity.class);
-                        startActivity(getsure);
-                        overridePendingTransition(R.anim.right_in,R.anim.left_out);
+                        aClass = IntroduceActivity.class;
                         break;
                     case 6:
-                        Intent intentWall=new Intent(SettingActivity.this,WallpaperActivity.class);
-                        startActivity(intentWall);
-                        overridePendingTransition(R.anim.right_in,R.anim.left_out);
+                        FankuiDialog noteCommentDialog = FankuiDialog.newInstance(0);
+                        noteCommentDialog.show(getSupportFragmentManager(), "NoteDetailActivity");
                         break;
                     case 7:
-                        Intent intentUs=new Intent(SettingActivity.this,AboutUsActivity.class);
-                        startActivity(intentUs);
-                        overridePendingTransition(R.anim.right_in,R.anim.left_out);
+                        Beta.checkUpgrade();
                         break;
+                    case 8:
+                        ToastUtils.showToast("版本号：V"+getVersion());
+                        break;
+                }
+                if(aClass!=null){
+                    Intent intent=new Intent(SettingActivity.this,aClass);
+                    if(aClass==ListDetailActivity.class){
+                        intent.putStringArrayListExtra("photo",lists);
+                        intent.putExtra("tag",1);
+                    }
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.right_in, R.anim.left_out);
                 }
             }
         });
+    }
+    private String getVersion() {
+        // 获取packagemanager的实例
+        PackageManager packageManager = this.getPackageManager();
+        // getPackageName()是你当前类的包名，0代表是获取版本信息
+        PackageInfo packInfo = null;
+        try {
+            packInfo = packageManager.getPackageInfo(this.getPackageName(),0);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        String version = packInfo.versionName;
+        return version;
     }
 
     private void setNightMode() {

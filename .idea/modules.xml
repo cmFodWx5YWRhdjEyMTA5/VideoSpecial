@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ColorMatrix.iml" filepath="$PROJECT_DIR$/ColorMatrix.iml" />
+      <module fileurl="file://D:\project\VideoSpecial\ColorMatrix.iml" filepath="D:\project\VideoSpecial\ColorMatrix.iml" />
+      <module fileurl="file://$PROJECT_DIR$/VideoSpecial.iml" filepath="$PROJECT_DIR$/VideoSpecial.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/pluglin_special/pluglin_special.iml" filepath="$PROJECT_DIR$/pluglin_special/pluglin_special.iml" />
-      <module fileurl="file://$PROJECT_DIR$/pluglin_video/pluglin_video.iml" filepath="$PROJECT_DIR$/pluglin_video/pluglin_video.iml" />
     </modules>
   </component>
 </project>
