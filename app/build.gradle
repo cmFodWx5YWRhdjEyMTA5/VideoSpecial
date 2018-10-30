@@ -79,6 +79,7 @@ dependencies {
     compile 'com.haozhang.libary:android-slanted-textview:1.2'
     compile 'com.getbase:floatingactionbutton:1.10.1'
     compile 'com.github.chrisbanes.photoview:library:1.2.4'
+    compile 'com.isanwenyu.highlight:highlight:1.8.0'
     compile files('libs/Msc.jar')
     compile files('libs/Sunflower.jar')
     compile project(':pluglin_video')
